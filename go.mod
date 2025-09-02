@@ -9,6 +9,7 @@ require (
 	github.com/containernetworking/cni v1.3.0
 	github.com/coreos/go-iptables v0.8.0
 	github.com/coreos/go-systemd/v22 v22.6.0
+	github.com/docker/docker v27.3.1+incompatible
 	github.com/godbus/dbus/v5 v5.1.0
 	github.com/insomniacslk/dhcp v0.0.0-20240829085014-a3a4c1f04475
 	github.com/mattn/go-shellwords v1.0.12
