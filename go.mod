@@ -1,9 +1,9 @@
 module github.com/containernetworking/plugins
 
-go 1.26.8
+go 1.26.0
 
 require (
-	github.com/Microsoft/hcsshim v0.15.0
+	github.com/Microsoft/hcsshim v0.14.1
 	github.com/alexflint/go-filemutex v1.3.0
 	github.com/buger/jsonparser v1.6.1
 	github.com/containernetworking/cni v1.3.1
@@ -12,6 +12,7 @@ require (
 	github.com/godbus/dbus/v5 v5.2.4
 	github.com/insomniacslk/dhcp v0.0.0-20260719225207-c76316d4aa82
 	github.com/mattn/go-shellwords v1.0.16
+	github.com/moby/sys/reexec v0.1.0
 	github.com/networkplumbing/go-nft v0.4.0
 	github.com/onsi/ginkgo/v2 v2.34.0
 	github.com/onsi/gomega v1.44.0
@@ -25,12 +26,11 @@ require (
 )
 
 require (
-	cyphar.com/go-pathrs v0.2.5 // indirect
 	github.com/Masterminds/semver/v3 v3.4.0 // indirect
 	github.com/Microsoft/go-winio v0.6.4 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/containerd/cgroups/v3 v3.1.3 // indirect
-	github.com/cyphar/filepath-securejoin v0.7.0 // indirect
+	github.com/containerd/cgroups/v3 v3.1.0 // indirect
+	github.com/cyphar/filepath-securejoin v0.5.2 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
