@@ -6,7 +6,7 @@ generators = ["go", "go-grpc"]
   before = ["./protobuf"]
 
   # defaults are "/usr/local/include" and "/usr/include", which don't exist on Windows.
-  # override defaults to supress errors about non-existent directories.
+  # override defaults to supress errors about non-existant directories.
   after = []
 
 # This section maps protobuf imports to Go packages.
@@ -19,8 +19,7 @@ prefixes = [
   "github.com/Microsoft/hcsshim/internal/shimdiag",
   "github.com/Microsoft/hcsshim/internal/extendedtask",
   "github.com/Microsoft/hcsshim/internal/computeagent",
-  "github.com/Microsoft/hcsshim/internal/controller",
   "github.com/Microsoft/hcsshim/internal/ncproxyttrpc",
-  "github.com/Microsoft/hcsshim/pkg/migration",
+  "github.com/Microsoft/hcsshim/internal/vmservice",
 ]
 generators = ["go", "go-ttrpc"]

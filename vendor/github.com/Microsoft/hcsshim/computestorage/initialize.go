@@ -5,10 +5,10 @@ package computestorage
 import (
 	"context"
 	"encoding/json"
-	"go.opentelemetry.io/otel/attribute"
 
-	"github.com/Microsoft/hcsshim/internal/ot"
+	"github.com/Microsoft/hcsshim/internal/oc"
 	"github.com/pkg/errors"
+	"go.opencensus.io/trace"
 )
 
 // InitializeWritableLayer initializes a writable layer for a container.
@@ -19,11 +19,11 @@ import (
 // `layerData` is the parent read-only layer data.
 func InitializeWritableLayer(ctx context.Context, layerPath string, layerData LayerData) (err error) {
 	title := "hcsshim::InitializeWritableLayer"
-	ctx, span := ot.StartSpan(ctx, title) //nolint:ineffassign,staticcheck
+	ctx, span := oc.StartSpan(ctx, title) //nolint:ineffassign,staticcheck
 	defer span.End()
-	defer func() { ot.SetSpanStatus(span, err) }()
-	span.SetAttributes(
-		attribute.String("layerPath", layerPath),
+	defer func() { oc.SetSpanStatus(span, err) }()
+	span.AddAttributes(
+		trace.StringAttribute("layerPath", layerPath),
 	)
 
 	bytes, err := json.Marshal(layerData)

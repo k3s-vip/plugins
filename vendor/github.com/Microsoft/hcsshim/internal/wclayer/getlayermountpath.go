@@ -4,12 +4,12 @@ package wclayer
 
 import (
 	"context"
-	"go.opentelemetry.io/otel/attribute"
 	"syscall"
 
 	"github.com/Microsoft/hcsshim/internal/hcserror"
 	"github.com/Microsoft/hcsshim/internal/log"
-	"github.com/Microsoft/hcsshim/internal/ot"
+	"github.com/Microsoft/hcsshim/internal/oc"
+	"go.opencensus.io/trace"
 )
 
 // GetLayerMountPath will look for a mounted layer with the given path and return
@@ -18,10 +18,10 @@ import (
 // folder path at which the layer is stored.
 func GetLayerMountPath(ctx context.Context, path string) (_ string, err error) {
 	title := "hcsshim::GetLayerMountPath"
-	ctx, span := ot.StartSpan(ctx, title)
+	ctx, span := oc.StartSpan(ctx, title)
 	defer span.End()
-	defer func() { ot.SetSpanStatus(span, err) }()
-	span.SetAttributes(attribute.String("path", path))
+	defer func() { oc.SetSpanStatus(span, err) }()
+	span.AddAttributes(trace.StringAttribute("path", path))
 
 	var mountPathLength uintptr = 0
 
@@ -47,6 +47,6 @@ func GetLayerMountPath(ctx context.Context, path string) (_ string, err error) {
 	}
 
 	mountPath := syscall.UTF16ToString(mountPathp[0:])
-	span.SetAttributes(attribute.String("mountPath", mountPath))
+	span.AddAttributes(trace.StringAttribute("mountPath", mountPath))
 	return mountPath, nil
 }

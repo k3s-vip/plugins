@@ -61,7 +61,7 @@ func formatAddr(a net.Addr) string {
 // HTML escapes.
 // Context is used to output a log waring if the conversion fails.
 //
-// This is intended primarily for `attribute.String()`
+// This is intended primarily for `trace.StringAttribute()`
 func Format(ctx context.Context, v interface{}) string {
 	b, err := encode(v)
 	if err != nil {

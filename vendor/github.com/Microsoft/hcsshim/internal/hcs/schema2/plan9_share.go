@@ -19,7 +19,16 @@ type Plan9Share struct {
 
 	Port int32 `json:"Port,omitempty"`
 
-	Flags Plan9ShareFlags `json:"Flags,omitempty"`
+	// Flags are marked private. Until they are exported correctly
+	//
+	// ReadOnly      0x00000001
+	// LinuxMetadata 0x00000004
+	// CaseSensitive 0x00000008
+	Flags int32 `json:"Flags,omitempty"`
+
+	ReadOnly bool `json:"ReadOnly,omitempty"`
+
+	UseShareRootIdentity bool `json:"UseShareRootIdentity,omitempty"`
 
 	AllowedFiles []string `json:"AllowedFiles,omitempty"`
 }
